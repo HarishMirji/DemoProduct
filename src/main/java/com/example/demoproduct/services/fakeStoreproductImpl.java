@@ -13,7 +13,7 @@ public class fakeStoreproductImpl implements ProductService{
             Take id from input and pass it to the fakestore api
             https://fakestoreapi.com/products/{id}
         */
-        String url = "http://localhost:8080/products/"+id;
+        String url = "https://fakestoreapi.com/products/"+id;
         RestTemplate restTemplate  = new RestTemplate(); // rest template is used for calling 3rd party apis
         FakeStoreProduct fakeStoreProductdto = restTemplate.getForObject(url, FakeStoreProduct.class);
         return convertfakeStoreProdutToProduct(fakeStoreProductdto);
