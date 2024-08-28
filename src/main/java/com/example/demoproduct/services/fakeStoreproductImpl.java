@@ -22,6 +22,16 @@ public class fakeStoreproductImpl implements ProductService{
         return convertfakeStoreProdutToProduct(fakeStoreProductdto);
     }
 
+    @Override
+    public Product getProductByName(String name) throws ProductNotFoundException {
+        String url = "https://fakestoreapi.com/products/"+name;
+        RestTemplate restTemplate  = new RestTemplate(); // rest template is used for calling 3rd party apis
+        FakeStoreProduct fakeStoreProductdto = restTemplate.getForObject(url, FakeStoreProduct.class);
+        if(fakeStoreProductdto == null)
+            throw new ProductNotFoundException("Product with name "+name +" is not found");
+        return convertfakeStoreProdutToProduct(fakeStoreProductdto);
+    }
+
     private  Product convertfakeStoreProdutToProduct(FakeStoreProduct dto){
         Product product = new Product();
         product.setName(dto.getTitle());

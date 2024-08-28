@@ -26,4 +26,13 @@ public class ProductController {
         return new ResponseEntity<>(product, HttpStatusCode.valueOf(200));
     }
 
+    @GetMapping("/products/name/{name}")
+    public ResponseEntity<Product> getProductByName(@PathVariable("name") String name) throws ProductNotFoundException {
+//        if (productId < 1 || productId > 20) {
+//            return new ResponseEntity<>(HttpStatusCode.valueOf(400));
+//        }
+        Product product = productService.getProductByName(name);
+        return new ResponseEntity<>(product, HttpStatusCode.valueOf(200));
+    }
+
 }

@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class ControllerAdvise {   // to register common exceptions overall
 
     @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<String> getProducyNotFoundException(ProductNotFoundException e){
+    public ResponseEntity<String> getProductNotFoundException(ProductNotFoundException e){
         return  new ResponseEntity<>(e.getMessage(), HttpStatusCode.valueOf(400));
     }
 
