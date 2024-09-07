@@ -30,6 +30,7 @@ public class ProductController {
     public ResponseEntity<Product> getProductByName(@PathVariable("name") String name) throws ProductNotFoundException {
 //        if (productId < 1 || productId > 20) {
 //            return new ResponseEntity<>(HttpStatusCode.valueOf(400));
+        //Hi Hello
 //        }
         Product product = productService.getProductByName(name);
         return new ResponseEntity<>(product, HttpStatusCode.valueOf(200));
